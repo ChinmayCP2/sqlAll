@@ -1,0 +1,44 @@
+CREATE OR REPLACE PROCEDURE inpPerson(a VARCHAR(100), b VARCHAR(100))
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO person VALUES (a, b);
+END;
+$$;
+
+call inpPerson('hello', 'world');
+
+create or replace procedure selectPerson()
+	language plpgsql
+	as $$ 
+	DECLARE
+    person_record RECORD;
+	begin
+	for person_record in select * from Person loop
+	raise notice 'Person %, %',	 person_record.fname
+		, person_record.lname;
+	End loop;
+end;
+$$;
+
+call selectPerson();
+	
+
+create or replace function displayEmp()
+	returns table(
+	a varchar(100),
+	b varchar(100)
+	) as $$ select * from person;
+	$$ language sql;
+
+create or replace function displayPerson(fname varchar, lnamne varchar)
+	as $$ 
+	insert into person values (fname, lname);
+	$$ language sql;
+select * from displayEmp();
+
+select * from person;
+select 1, * from employee
+	order by 3;
+
+select * from person;

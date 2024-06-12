@@ -1,0 +1,60 @@
+-- Create table
+-- CREATE TABLE TimePeriods (
+--     ID SERIAL PRIMARY KEY,
+--     StartDateTime TIMESTAMP,
+--     EndDateTime TIMESTAMP,
+--     StartDate DATE,
+--     EndDate DATE
+-- );
+
+-- -- Insert dummy data
+-- INSERT INTO TimePeriods (StartDateTime, EndDateTime, StartDate, EndDate) VALUES
+--     ('2024-06-01 08:00:00', '2024-06-01 12:00:00', '2024-06-01', '2024-06-01'),
+--     ('2024-06-01 13:00:00', '2024-06-01 17:00:00', '2024-06-01', '2024-06-01'),
+--     ('2024-06-02 08:30:00', '2024-06-02 11:30:00', '2024-06-02', '2024-06-02'),
+--     ('2024-06-02 13:30:00', '2024-06-02 16:30:00', '2024-06-02', '2024-06-02'),
+--     ('2024-06-03 09:00:00', '2024-06-03 12:00:00', '2024-06-03', '2024-06-03'),
+--     ('2024-06-03 14:00:00', '2024-06-03 18:00:00', '2024-06-03', '2024-06-03'),
+--     ('2024-06-04 08:00:00', '2024-06-04 11:00:00', '2024-06-04', '2024-06-04'),
+--     ('2024-06-04 13:00:00', '2024-06-04 16:00:00', '2024-06-04', '2024-06-04');
+
+
+-- SELECT ('2023-09-21'::Date + Interval '1 Year' year + '2 days') as future_date;
+
+
+-- select (StartDateTime + '1 Year'+ '2 day') as In_1year_2days 
+-- from TimePeriods;
+-- -- The query works without interval 
+
+-- select (StartDate - Interval '2 Year' - Interval '2 day') as In_1year_2days 
+-- from TimePeriods;
+-- The query does not work without interval 
+-- when using minus always use interval keyword
+-- SELECT DAY FROM ('2024-06-07'::DATE - '2024-01-01'::DATE)) AS duration;
+
+-- select current_date;
+-- select current_time;
+-- select CURRENT_TIMESTAMP;
+-- select now();
+-- SELECT date_part('century',TIMESTAMP '2017-01-01');
+-- SELECT date_part('year',TIMESTAMP '2017-01-01');
+-- SELECT date_part('month',TIMESTAMP '2017-01-01');
+-- SELECT date_part('week',TIMESTAMP '2017-01-01');
+-- select extract(month from TIMESTAMP '2017-01-01') as month;
+-- SELECT EXTRACT(DOW FROM TIMESTAMP '2016-12-31 13:30:15') day_of_week;	
+-- -- select extract(week from TIMESTAMP '2017-01-01') as week;
+-- -- SELECT EXTRACT(DOY FROM TIMESTAMP '2016-12-31 13:30:15') day_of_year;
+
+-- SELECT ('2024-06-07'::DATE - '2024-01-01'::DATE) AS days_interval;
+
+-- -- select extract(month from ('2024-06-07'::DATE - '2024-01-01'::DATE)) as a;
+
+-- select extract(month from StartDateTime) as month 
+-- from TimePeriods;
+
+-- Update TimePeriods
+-- set endDate = endDate + Interval  '1 year';
+
+select age(enddate,startdate), enddate, startdate from timeperiods;
+
+

@@ -1,0 +1,54 @@
+-- CREATE TABLE Employee (
+--     id SERIAL PRIMARY KEY,
+--     sal INT,
+--     val VARCHAR DEFAULT 'df',
+--     info VARCHAR NOT NULL
+-- );
+
+-- INSERT INTO employee (sal, info) VALUES
+-- (NULL, 'Value 1'),
+-- (123, 'Value 2'),
+-- (NULL, 'Value 3'),
+-- (NULL, 'Value 4'),
+-- (12, 'Value 5');
+
+-- SELECT * FROM employee;
+
+-- drop table example_table;
+
+select sal from employee 
+where sal is not null;
+
+select id,sal from employee 
+where sal is  null;
+
+select sum(case when sal is null then 1 else 0 end) as nullCount,
+	sum(case when sal is not null then 1 else 0 end) as not_null_count
+from employee;
+
+select coalesce(sal,0) as UpdatedSal
+from employee;
+
+select Nullif(val,info) from employee;
+
+SELECT * FROM employee;
+
+
+-- select into
+-- select * into newEmployee from employee;
+
+select * from newEmployee;
+
+-- select id, sal into Emp1 from employee
+-- where sal is not null;
+
+select * from emp1;
+
+-- it can also copy the whole table without data 
+-- just add a always false where clause 1 = 0;
+
+-- select * into emp2 
+-- from employee
+-- where 1 = 0;
+
+select * from emp2;

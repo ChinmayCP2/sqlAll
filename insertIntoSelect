@@ -1,0 +1,57 @@
+CREATE TABLE customers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    country VARCHAR(50),
+    city VARCHAR(50)
+);
+
+INSERT INTO customers (name, country, city) VALUES
+('John Doe', 'Germany', 'Berlin'),
+('Jane Smith', 'Germany', 'Munich'),
+('Michael Johnson', 'Germany', 'Hamburg'),
+('Emma Müller', 'Germany', 'Frankfurt'),CREATE TABLE supplierGermany (
+    SupplierName VARCHAR(100),
+    City VARCHAR(50),
+    Country VARCHAR(50)
+);
+('Max Schmidt', 'Germany', 'Cologne'),
+
+('Ivan Petrov', 'Russia', 'Moscow'),
+('Olga Ivanova', 'Russia', 'Saint Petersburg'),
+('Dmitry Sokolov', 'Russia', 'Novosibirsk'),
+('Svetlana Kuznetsova', 'Russia', 'Yekaterinburg'),
+('Alexei Smirnov', 'Russia', 'Nizhny Novgorod'),
+
+('Li Wei', 'China', 'Shanghai'),
+('Wang Liu', 'China', 'Beijing'),
+('Zhang Chen', 'China', 'Guangzhou'),
+('Liu Yang', 'China', 'Shenzhen'),
+('Chen Li', 'China', 'Tianjin'),
+
+('Raj Patel', 'India', 'Mumbai'),
+('Priya Sharma', 'India', 'Delhi'),
+('Amit Kumar', 'India', 'Bangalore'),
+('Deepak Singh', 'India', 'Hyderabad'),
+('Anita Mishra', 'India', 'Chennai');
+
+select * from customers;
+
+CREATE TABLE supplier (
+    SupplierName VARCHAR(100),
+    City VARCHAR(50),
+    Country VARCHAR(50)
+);
+CREATE TABLE supplierGermany (
+    SupplierName VARCHAR(100),
+    City VARCHAR(50),
+    Country VARCHAR(50)
+);
+
+
+insert into supplier(SupplierName, City, Country)
+select name,city,country from customers;
+insert into supplierGermany(SupplierName, City, Country)
+select name,city,country from customers
+	where country = 'Germany';
+
+select* from supplierGermany;

@@ -1,0 +1,88 @@
+-- -- Create Users table
+-- CREATE TABLE Users (
+--     UserID SERIAL PRIMARY KEY,
+--     UserName VARCHAR(50) NOT NULL
+-- );
+
+-- -- Create Orders table
+-- CREATE TABLE Orders (
+--     OrderID SERIAL PRIMARY KEY,
+--     OrderNumber VARCHAR(20) NOT NULL,
+--     UserID INT,
+--     FOREIGN KEY (UserID) REFERENCES Users(UserID)
+-- );
+-- -- Inserting dummy data into Users table
+-- INSERT INTO Users (UserName) VALUES
+--     ('John Doe'),
+--     ('Jane Smith'),
+--     ('Alice Johnson');
+
+-- -- Inserting dummy data into Orders table
+-- INSERT INTO Orders (OrderNumber, UserID) VALUES
+--     ('ORD001', 1),
+--     ('ORD002', 1),
+--     ('ORD003', 2),
+--     ('ORD004', 3);
+-- -- Create Products table
+-- CREATE TABLE Products (
+--     ProductID SERIAL PRIMARY KEY,
+--     ProductName VARCHAR(100) NOT NULL,
+--     Price DECIMAL(10, 2) NOT NULL
+-- );
+-- -- Create OrderDetails table
+-- CREATE TABLE OrderDetails (
+--     OrderDetailID SERIAL PRIMARY KEY,
+--     OrderID INT,
+--     ProductID INT,
+--     Quantity INT,
+--     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+--     FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+-- );
+
+-- -- Inserting dummy data into Products table
+-- -- Inserting dummy data into Products table
+-- INSERT INTO Products (ProductName, Price) VALUES
+--     ('Product A', 10.99),
+--     ('Product B', 20.49),
+--     ('Product C', 15.99);
+
+-- -- Inserting dummy data into OrderDetails table
+-- INSERT INTO OrderDetails (OrderID, ProductID, Quantity) VALUES
+--     (1, 1, 2),
+--     (1, 2, 1),
+--     (2, 3, 3),
+--     (3, 1, 1);
+
+-- select userid, username from users;
+
+-- select u.userid, u.username from users u join(
+-- select o1.userid from orders as o1
+-- 	join (select o.orderID, p.productid
+-- 	from orderDetails o
+-- 	join products p
+-- 	on o.productId = p.productID
+-- 	where p.price > 15) a
+-- 	on o1.orderid = a.orderid) as b
+-- 	on u.userid = b.userid;
+
+ -- sort based on two columns
+select * from orders
+order by userid, orderid;
+select * from orders
+order by orderid;
+
+-- sort table based on 1nd column
+select * from orders
+order by 1;
+-- sort table based on 2nd column
+select * from orders
+order by 2;
+
+select * from users 
+order by userid desc;
+
+-- select * into users_backup from users;
+
+select * from users_backup;
+
+select 'Hello';
